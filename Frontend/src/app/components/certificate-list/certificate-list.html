@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-title>Existing Certificates</mat-card-title>
+  
+  <mat-toolbar class="filter-toolbar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search certificates...</mat-label>
+      <input matInput (keyup)="applyFilter($event)">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+    
+    <span class="toolbar-spacer"></span>
+    
+    <button mat-flat-button color="primary" (click)="navigateToAddCertificate()">
+      <mat-icon>add</mat-icon>
+      Add Certificate
+    </button>
+  </mat-toolbar>
+
+  <div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="certificateName">
+        <th mat-header-cell *matHeaderCellDef> Certificate Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.certificateName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="issuerName">
+        <th mat-header-cell *matHeaderCellDef> Issuer Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.issuerName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="validFrom">
+        <th mat-header-cell *matHeaderCellDef> Valid From </th>
+        <td mat-cell *matCellDef="let element"> {{element.validFrom | date:'longDate'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="validTo">
+        <th mat-header-cell *matHeaderCellDef> Valid To </th>
+        <td mat-cell *matCellDef="let element"> {{element.validTo | date:'longDate'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element" [class.status-active]="element.status === 'ACTIVE'" [class.status-expired]="element.status === 'EXPIRED'">
+          {{element.status}}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="5">No certificates found matching your search.</td>
+      </tr>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" 
+                 showFirstLastButtons 
+                 aria-label="Select page of certificates">
+  </mat-paginator>
+
+</mat-card>

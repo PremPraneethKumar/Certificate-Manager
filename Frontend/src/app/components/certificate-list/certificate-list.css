@@ -1,0 +1,61 @@
+/* Styles for the new search toolbar */
+.filter-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background: none; /* Make it blend with the card */
+  margin-bottom: 16px;
+}
+
+.search-field {
+  width: 40%;
+  max-width: 400px;
+  /* Make the search field less tall */
+  --mat-form-field-padding-top: 0.25em;
+  --mat-form-field-padding-bottom: 0.25em;
+  font-size: 14px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* Make the table responsive */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Remove card padding to let table and toolbar be full-width */
+mat-card {
+  padding: 0 !important;
+}
+
+mat-card-title {
+  padding: 24px 24px 0 24px;
+}
+
+.filter-toolbar {
+  padding: 50px 24px 16px 24px;
+}
+
+/* Make paginator stick to the card */
+mat-paginator {
+  padding-bottom: 16px;
+}
+
+/* Color coding for status */
+.status-active {
+  color: #13cc25; /* A nice green for dark mode */
+  font-weight: 500;
+}
+
+.status-expired {
+  color: #c51b0c; /* A light red for dark mode */
+  font-weight: 500;
+}
+
+table{
+  margin-top: 10px;
+}
+

@@ -1,0 +1,31 @@
+/* Make the main container fill the entire screen */
+.sidenav-container {
+  height: 100vh; /* 100% of the viewport height */
+}
+
+/* Style the sidenav itself */
+.sidenav {
+  width: 250px; /* Set a fixed width for the navigation */
+  background-color: #f4f4f4; /* A light background for the nav */
+}
+
+/* Style the header in the nav list */
+.nav-header {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 16px;
+  background-color: #eaeaea;
+  color: #097647; /* Primary color */
+}
+
+/* Style the content area's padding */
+.content-container {
+  padding: 24px;
+}
+
+.menu1 {
+  margin-top: 20px;
+  padding: 10px;
+  /* background-color: #4fb3ac; */
+}

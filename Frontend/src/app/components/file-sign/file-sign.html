@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-title>Sign a File</mat-card-title>
+  
+  <form (ngSubmit)="onSubmit()" #signForm="ngForm">
+    <mat-card-content>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>File Name</mat-label>
+        <input matInput [(ngModel)]="model.fileName" name="fileName" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Certificate to use</mat-label>
+        <mat-select [(ngModel)]="model.certificateId" name="certificateId" required>
+          
+          <mat-option *ngFor="let cert of certificates" [value]="cert.id">
+            {{cert.certificateName}} (Issued by: {{cert.issuerName}})
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!signForm.form.valid">Sign File</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

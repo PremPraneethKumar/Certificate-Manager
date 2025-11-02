@@ -1,0 +1,12 @@
+/* Keep your existing styles */
+html, body { height: 100%; }
+body { 
+  margin: 0; /* <-- Make sure margin is set to 0 */
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  
+}
+
+/* Keep your .mat-form-field style */
+.mat-form-field {
+    width: 100%;
+}

@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>Add New Certificate</mat-card-title>
+  
+  <form (ngSubmit)="onSubmit()" #certForm="ngForm">
+    <mat-card-content>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Certificate Name</mat-label>
+        <input matInput [(ngModel)]="model.certificateName" name="certificateName" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Issuer Name</mat-label>
+        <input matInput [(ngModel)]="model.issuerName" name="issuerName" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Valid From</mat-label>
+        <input matInput [matDatepicker]="pickerFrom" [(ngModel)]="model.validFrom" name="validFrom" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Valid To</mat-label>
+        <input matInput [matDatepicker]="pickerTo" [(ngModel)]="model.validTo" name="validTo" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!certForm.form.valid">Save Certificate</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

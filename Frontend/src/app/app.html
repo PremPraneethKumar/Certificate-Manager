@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    
+    <mat-nav-list>
+      <div class="nav-header">Manager Menu</div>
+      <div class="menu1">
+      <a mat-list-item routerLink="/certificates">
+        <mat-icon mat-list-icon>badge</mat-icon>
+        <span mat-line> Certificates</span>
+      </a>
+      <!--
+      <a mat-list-item routerLink="/certificates/add">
+        <mat-icon mat-list-icon>add_circle_outline</mat-icon>
+        <span mat-line>Add Certificate</span>
+      </a>
+      -->
+      <a mat-list-item routerLink="/sign-file">
+        <mat-icon mat-list-icon>edit_document</mat-icon>
+        <span mat-line> Sign a File </span>
+      </a>
+      
+      <a mat-list-item routerLink="/signed-files">
+        <mat-icon mat-list-icon>work_history</mat-icon>
+        <span mat-line> Signed Files</span>
+      </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    
+    <mat-toolbar color="primary">
+      
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      
+      <span>Code Signing Certificate Manager</span>
+    </mat-toolbar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
