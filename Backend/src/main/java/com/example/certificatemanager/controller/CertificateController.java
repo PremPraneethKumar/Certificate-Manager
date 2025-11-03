@@ -13,7 +13,7 @@ import java.util.stream.Collectors; // <-- Import Collectors
 
 @RestController
 @RequestMapping("/api/certificates")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class CertificateController {
 
     @Autowired
